@@ -14,3 +14,9 @@ to check via grpcc client
 npm install -g grpcc
 ./client.sh
 ```
+
+result
+
+```
+3
+```

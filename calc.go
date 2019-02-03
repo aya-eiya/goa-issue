@@ -20,7 +20,8 @@ func NewCalc(logger *log.Logger) calcsvc.Service {
 }
 
 // Add implements add.
-func (s *calcsrvc) Add(ctx context.Context, p *calcsvc.AddPayload) (res string, err error) {
-	res = fmt.Sprintf("%d + %d = %d", p.A, p.B, p.A+p.B)
+func (s *calcsrvc) Add(ctx context.Context, p *calcsvc.AddPayload) (*calcsvc.Result, error) {
+	str := fmt.Sprintf("%d + %d = %d", p.A, p.B, p.A+p.B)
+	res := &calcsvc.Result{Result: &str}
 	return res, nil
 }

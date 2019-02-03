@@ -9,6 +9,13 @@ var _ = API("calc", func() {
 	Description("calc hosts the Calculator Service.")
 })
 
+var CalcResultType = ResultType("application/vnd.result", func() {
+	TypeName("Result")
+	Attributes(func() {
+		Field(1, "result", String)
+	})
+})
+
 var _ = Service("calc", func() {
 	Description("The calc service performs operations on numbers")
 
@@ -19,7 +26,7 @@ var _ = Service("calc", func() {
 			Required("a", "b")
 		})
 
-		Result(String)
+		Result(CalcResultType)
 
 		GRPC(func() {
 			Response(CodeOK)

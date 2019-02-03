@@ -19,7 +19,7 @@ var _ = Service("calc", func() {
 			Required("a", "b")
 		})
 
-		Result(Int)
+		Result(String)
 
 		GRPC(func() {
 			Response(CodeOK)

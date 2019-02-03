@@ -2,6 +2,7 @@ package calc
 
 import (
 	"context"
+	"fmt"
 	"log"
 
 	calcsvc "github.com/aya-eiya/goa-issue/gen/calc"
@@ -19,6 +20,7 @@ func NewCalc(logger *log.Logger) calcsvc.Service {
 }
 
 // Add implements add.
-func (s *calcsrvc) Add(ctx context.Context, p *calcsvc.AddPayload) (res int, err error) {
-	return p.A + p.B, nil
+func (s *calcsrvc) Add(ctx context.Context, p *calcsvc.AddPayload) (res string, err error) {
+	res = fmt.Sprintf("%d + %d = %d", p.A, p.B, p.A+p.B)
+	return res, nil
 }
